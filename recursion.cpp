@@ -93,7 +93,7 @@ int poweriterative(int num1, int num2)
 //       return ans;
 //    else
 //    {
-//       cout<<" "<<temp;
+//       cout<<" "<<temp;Anil is mad
 //       temp = a + b;
 //       a = b;
 //       b = temp;
