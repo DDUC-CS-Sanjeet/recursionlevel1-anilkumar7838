@@ -25,18 +25,27 @@ int gcdrecursive(int num1, int num2)
 }
 int gcditerative(int num1, int num2)
 {
-   while (num1 != num2)
-   {
-      if (num1 > num2)
-      {
-         num1 = num1 - num2;
-      }
-      else
-      {
-         num2 = num2 - num1;
-      }
-   }
-   return num1;
+  int r;
+  if(num1>num2)
+  {
+  	while(num2>0)
+  	{
+  		r=num1%num2;
+  		num1=num2;
+  		num2=r;
+	  }
+	  return num1;
+  }
+  else
+  {
+  	while(num1>0)
+  	{
+  		r=num2%num1;
+  		num2=num1;
+  		num1=r;
+	  }
+	  return num2;
+  }
 }
 int factorialrecursive(int num)
 {
@@ -87,32 +96,19 @@ int poweriterative(int num1, int num2)
    }
    return ans;
 }
-// int fibonaccirecursive(int num, int a, int b,int temp,int ans )
-// {
-//    if (num ==1)
-//       return ans;
-//    else
-//    {
-//       cout<<" "<<temp;Anil is mad
-//       temp = a + b;
-//       a = b;
-//       b = temp;
-//       ans=ans+temp;
-//       fibonaccirecursive(num-1,a,b,temp,ans);
-//    }
-// }
 int fibonaccirecursive(int num, int v1, int v2)
-{
+{   
    if(num==0)
    {
-      cout<<num;
-      return num;
+   	return -1;
+   }
+   else if(num==1)
+   {
+   	  cout<<"0"<<endl;
+      return 0;
+   }
+  
 
-   }
-   else if(num==1){
-      cout<<0<<" "<<1;
-      return num;
-   }
    if (num>2){
       cout<<v1+v2<<" ";
       return fibonaccirecursive(num-1,v2,v1+v2);
@@ -150,7 +146,6 @@ int main()
    int a, b, num1, num2, num, ans;
    cout << "enter the command\nenter 1 for gcd\nenter 2 for factorial\nenter 3 for power\nenter 4 for fibonacci" << endl;
    cin >> a;
-   // gcd factorial power fibonacci
    switch (a)
    {
    case 1:
@@ -221,8 +216,8 @@ int main()
       switch (b)
       {
       case 1:
+         cout<<"0"<<" "<<"1"<<" ";
          ans = fibonaccirecursive(num,0,1);
-         // cout << "\nthe sum of series is:" << ans;
          break;
       case 2:
          ans = fibonacciiterative(num);
